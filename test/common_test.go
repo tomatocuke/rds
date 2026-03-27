@@ -30,7 +30,7 @@ type gun struct {
 }
 
 func TestMain(m *testing.M) {
-	err := rds.Connect("127.0.0.1:6379", "", 0)
+	err := rds.Connect("127.0.0.1:6379", "", "", 0)
 	if err != nil {
 		fmt.Println(err)
 		return

@@ -31,11 +31,13 @@ func SetDB(db Cmdable) {
 	initInfo()
 }
 
-// Connect("127.0.0.1:6379", "", 0)
-func Connect(addr string, auth string, db int) error {
+// Connect("127.0.0.1:6379", "", "", 0)
+// 未设置username可传空
+func Connect(addr string, username, auth string, db int) error {
 	options := &redis.Options{
 		Addr:             addr,
 		Password:         auth,
+		Username:         username,
 		DB:               db,
 		DisableIndentity: true,
 		ReadTimeout:      time.Second * 3,
